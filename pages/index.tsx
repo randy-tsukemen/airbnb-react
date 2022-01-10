@@ -4,6 +4,7 @@ import Banner from '../components/Banner'
 import SmallCard from '../components/SmallCard'
 import MediumCard from '../components/MediumCard'
 import LargeCard from '../components/LargeCard'
+import Footer from '../components/Footer'
 
 export default function Home( { exploreData, cardsData } ) {
   console.log(exploreData)
@@ -46,6 +47,8 @@ export default function Home( { exploreData, cardsData } ) {
         description="いろはにも絵を"
         buttonText="ロボロフス"/>
       </main>
+      
+      <Footer />
     </div>
   )
 }
