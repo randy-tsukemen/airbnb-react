@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Banner from '../components/Banner'
 import SmallCard from '../components/SmallCard'
 import MediumCard from '../components/MediumCard'
+import LargeCard from '../components/LargeCard'
 
 export default function Home( { exploreData, cardsData } ) {
   console.log(exploreData)
@@ -38,6 +39,12 @@ export default function Home( { exploreData, cardsData } ) {
               <MediumCard key={img} img={img} title={title}  />)}
           </div>
         </section>
+
+        <LargeCard 
+        img="https://pbs.twimg.com/media/FIuwMM4agAAC5aW?format=jpg&name=4096x4096"
+        title="ちまっとほろっくす"
+        description="いろはにも絵を"
+        buttonText="ロボロフス"/>
       </main>
     </div>
   )
