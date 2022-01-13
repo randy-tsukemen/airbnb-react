@@ -39,6 +39,12 @@ const Footer = () => {
         <p>Referrals accepted</p>
         <p>holoX</p>
       </div>
+      {/* <iframe
+        width="900"
+        height="800"
+        frameborder="0"
+        src="http://titanicexplainer.herokuapp.com/classifier/"
+      ></iframe> */}
     </div>
   );
 };
