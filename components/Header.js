@@ -6,7 +6,7 @@ import {
   UserCircleIcon,
   UsersIcon,
 } from "@heroicons/react/solid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
@@ -45,6 +45,19 @@ const Header = ({ placeholder }) => {
     endDate: endDate,
     key: "selection",
   };
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 10) {
+        console.log("setScrolled(true);");
+      } else {
+        console.log("setScrolled(false);");
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header
