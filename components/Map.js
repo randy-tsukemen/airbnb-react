@@ -1,7 +1,8 @@
 import { getCenter } from "geolib";
 import { useState } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
 const Map = ({ searchResults }) => {
+  const [selectedLocation, setSelectedLocation] = useState({});
   // Transform the searchResults into { latitude: 52.516272, longitude: 13.377722} object
   const coordinates = searchResults.map((result) => ({
     latitude: result.lat,
@@ -35,8 +36,28 @@ const Map = ({ searchResults }) => {
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <p className="cursor-pointer text-2xl animate-bounce">🎃</p>
+            <p
+              role="img"
+              onClick={() => setSelectedLocation(result)}
+              className="cursor-pointer text-2xl animate-bounce"
+              aria-label="push-pin"
+            >
+              🎃
+            </p>
           </Marker>
+          {/* The popup that should show if we click on a Maker */}
+          {selectedLocation.long === result.long ? (
+            <Popup
+              closeOnClick={true}
+              onClose={() => setSelectedLocation({})}
+              latitude={result.lat}
+              longitude={result.long}
+            >
+              {result.title}
+            </Popup>
+          ) : (
+            false
+          )}
         </div>
       ))}
     </ReactMapGL>
